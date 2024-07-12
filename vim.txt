@@ -1,0 +1,110 @@
+## Create a .vimrc file
+
+
+
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+" HTML5 and snippets
+Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim'
+
+" CSS and preprocessors
+Plug 'hail2u/vim-css3-syntax'
+Plug 'groenewege/vim-less'
+Plug 'cakebaker/scss-syntax.vim'
+
+" JavaScript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+" Auto-completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Linting and formatting
+Plug 'dense-analysis/ale'
+Plug 'prettier/vim-prettier', {'do': 'yarn install'}
+
+" File navigation and management
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf.vim'
+
+" Git integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Color schemes
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+
+" Status line
+Plug 'vim-airline/vim-airline'
+
+" General enhancements
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-easy-align'
+
+" Initialize plugin system
+call plug#end()
+
+" General settings
+syntax on
+set number
+set relativenumber
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+set background=dark
+colorscheme gruvbox
+
+" NERDTree settings
+autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Airline settings
+let g:airline#extensions#tabline#enabled = 1
+
+" CoC settings for auto-completion
+let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-tsserver', 'coc-prettier']
+
+" Easy Align key mappings
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" Fugitive key mappings for Git
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gd :Gdiff<CR>
+nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>gp :Gpush<CR>
+
+" ALE settings for linting and fixing
+let g:ale_fixers = {'javascript': ['prettier'], 'css': ['prettier'], 'html': ['prettier']}
+let g:ale_linters_explicit = 1
+
+
+
+
+
+
+#Install vim plug(vim plugin manager )🔌 
+
+
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
+
+
+Install the plugins
+
+
+
+vim +PlugInstall +qall
+
+
+
+Easy peasy!
