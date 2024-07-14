@@ -1,0 +1,9 @@
+Wallpaper
+Themes
+Icons
+Gogh terminal 
+Window tiling
+Custom system fetch
+Gotop(alternative htop)
+Pipes sh
+CBonsai
