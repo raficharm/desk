@@ -1,0 +1,22 @@
+void setup() {
+  pinMode(13, OUTPUT);       // Set pin 13 as output
+  Serial.begin(9600);        // Start Serial communication at 9600 baud
+  Serial.println("Type 'on' or 'off' to control the LED:");
+}
+
+void loop() {
+  if (Serial.available() > 0) {        // If data is available to read
+    String input = Serial.readStringUntil('\n');  // Read until Enter key
+    input.trim();                      // Remove any extra spaces or newline
+
+    if (input == "on") {
+      digitalWrite(13, HIGH);          // Turn LED on
+      Serial.println("LED is ON");
+    } else if (input == "off") {
+      digitalWrite(13, LOW);           // Turn LED off
+      Serial.println("LED is OFF");
+    } else {
+      Serial.println("Invalid command. Type 'on' or 'off'.");
+    }
+  }
+}
